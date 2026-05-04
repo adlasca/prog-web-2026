@@ -1,0 +1,24 @@
+<html lang="es">
+<head>
+    <title>Ejemplo 1</title>
+
+</head>
+<body>
+Hola <span id="miSpan">mundo</span>
+<br/>
+<button id="boton">Click</button>
+<script language="JavaScript">
+    var boton = document.getElementById("boton");
+    var span = document.getElementById("miSpan");
+    var text = "mundo"
+    boton.addEventListener("click", function () {
+        if (text == "mundo") {
+            text = "pepe"
+        } else {
+            text = "mundo"
+        }
+        span.innerHTML = text;
+    })
+</script>
+</body>
+</html>

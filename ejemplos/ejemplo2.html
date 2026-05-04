@@ -1,0 +1,46 @@
+<html lang="es">
+<head>
+    <title>Ejemplo 1</title>
+    <script src = "https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script language="JavaScript">
+        //Usando jquery
+        $(document).ready(function () {
+            var txt = "mundo";
+            $('#miBoton').click(function () {
+                if(txt==="mundo"){
+                    txt = "jQuery";
+                }else{
+                    txt = "mundo";
+                }
+                $('#miSpan').html(txt);
+
+                $('#root').append('<p>Nuevo parrafo</p>');
+            })
+        })
+
+        /*
+        Con js puro
+        var boton = document.getElementById("boton");
+        var span = document.getElementById("miSpan");
+        var text = "mundo"
+        boton.addEventListener("click", function () {
+            if (text == "mundo") {
+                text = "pepe"
+            } else {
+                text = "mundo"
+            }
+            span.innerHTML = text;
+        })*/
+    </script>
+</head>
+<body>
+Hola <span id="miSpan">mundo</span>
+<br/>
+<button id="miBoton">Click</button>
+<br/>
+<div id="root" style="border: 1px solid black">
+    Mi ROOT
+</div>
+
+</body>
+</html>
