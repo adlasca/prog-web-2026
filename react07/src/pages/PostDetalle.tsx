@@ -64,6 +64,10 @@ function PostDetalle() {
                     <Button variant="outlined" color="inherit" component={Link} to={"/posts"}>
                         Volver
                     </Button>
+
+                    <Button variant="outlined" color="inherit" component ={Link} to ={`/comments/${post.id}`}>
+                        Comentarios
+                    </Button>
                 </CardActions>
 
             </Card>
