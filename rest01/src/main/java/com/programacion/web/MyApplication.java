@@ -7,7 +7,7 @@ import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
 import java.util.Set;
-
+//Configura los recursis de la alicacion
 @ApplicationPath("/api")
 public class MyApplication extends Application {
 
