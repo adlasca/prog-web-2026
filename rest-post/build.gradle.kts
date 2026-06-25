@@ -11,6 +11,7 @@ repositories {
 val weldVersion ="6.0.4.Final"
 val hibernateVersion = "7.4.1.Final"
 val restEasyVersion = "7.0.2.Final"
+val deltaSpikeVersion ="2.0.1"
 
 dependencies {
     //json: Encargado de transformar a json
@@ -22,11 +23,25 @@ dependencies {
     //JPA
     implementation("org.hibernate.orm:hibernate-core:${hibernateVersion}")
 
+    implementation("org.projectlombok:lombok:1.18.46")
+
     implementation("org.jboss.resteasy:resteasy-core:${restEasyVersion}")
     implementation("org.jboss.resteasy:resteasy-undertow-cdi:${restEasyVersion}")
     implementation("org.jboss.resteasy:resteasy-json-binding-provider:${restEasyVersion}")
+    implementation("org.apache.deltaspike.core:core-project:2.0.1")
+    implementation("org.apache.deltaspike.modules:deltaspike-data-module-api:${deltaSpikeVersion}")
+    implementation("org.apache.deltaspike.modules:deltaspike-data-module-impl:${deltaSpikeVersion}")
+    implementation("org.postgresql:postgresql:42.7.3")
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks.withType<JavaCompile> {
+    options.release.set(21)
+}
+
+sourceSets{
+    main{
+        output.setResourcesDir(
+            file("${buildDir}/classes/java/main")
+        )
+    }
 }

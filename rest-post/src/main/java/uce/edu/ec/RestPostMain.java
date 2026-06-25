@@ -1,19 +1,25 @@
 package uce.edu.ec;
 
-
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.enterprise.inject.spi.CDI;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.ws.rs.SeBootstrap;
 import jakarta.ws.rs.core.Application;
+import uce.edu.ec.repositories.UserRepository;
 
 import java.net.URI;
 
 public class RestPostMain {
-    static void main(String[] args) throws Exception {
-        var emf = Persistence.createEntityManagerFactory("dbposts");
+    public static void main(String[] args) throws Exception {
 
+        var cdiContainer =SeContainerInitializer.newInstance().initialize();
 
+        var repo = cdiContainer.select(UserRepository.class).get();
+
+        //var emf = Persistence.createEntityManagerFactory("progweb");
+
+        //var em =emf.createEntityManager();
 
 
         SeBootstrap.Configuration config = SeBootstrap.Configuration.builder()
