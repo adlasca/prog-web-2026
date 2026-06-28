@@ -32,6 +32,9 @@ dependencies {
     implementation("org.apache.deltaspike.modules:deltaspike-data-module-api:${deltaSpikeVersion}")
     implementation("org.apache.deltaspike.modules:deltaspike-data-module-impl:${deltaSpikeVersion}")
     implementation("org.postgresql:postgresql:42.7.3")
+
+    compileOnly("org.projectlombok:lombok:1.18.46")
+    annotationProcessor("org.projectlombok:lombok:1.18.46")
 }
 
 tasks.withType<JavaCompile> {

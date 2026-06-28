@@ -1,13 +1,14 @@
 package com.programacion.web;
 
+import java.util.Set;
+
 import com.programacion.web.rest.ChaoRest;
 import com.programacion.web.rest.CustomerRest;
 import com.programacion.web.rest.HolaRest;
+
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
-
-import java.util.Set;
-//Configura los recursis de la alicacion
+//Configura los recursos de la aplicacion
 @ApplicationPath("/api")
 public class MyApplication extends Application {
 

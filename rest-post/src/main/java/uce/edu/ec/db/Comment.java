@@ -10,29 +10,19 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "users")
+@Table(name = "comments")
 @Getter
 @Setter
 @ToString
-public class User {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
+
+    private Integer postId;
     private String name;
-    private String username;
     private String email;
-    private String addressStreet;
-    private String addressSuite;
-    private String addressCity;
-    private String addressZipcode;
-    private String addressGeoLat;
-    private String addressGeoLng;
-    private String phone;
-    private String website;
-    private String companyName;
-    private String companyCatchPhrase;
-    private String companyBs;
+    private String body;
 
 }

@@ -1,24 +1,34 @@
 package uce.edu.ec.rest;
 
+import java.util.List;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.control.ActivateRequestContext;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import lombok.RequiredArgsConstructor;
 import uce.edu.ec.db.User;
 import uce.edu.ec.repositories.UserRepository;
 
-import java.util.List;
-
+@ApplicationScoped
+@ActivateRequestContext
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserRest {
-    final UserRepository userRepo;
 
     @Inject
-    public UserRest(UserRepository userRepo) {
-        this.userRepo = userRepo;
+    UserRepository userRepo;
+
+    public UserRest() {
     }
 
     @GET
@@ -44,6 +54,7 @@ public class UserRest {
     @Path("/{id}")
     public void update(@PathParam("id") Integer id, User user) {
         userRepo.findOptionalBy(id).ifPresent(existingUser->{
+            
             userRepo.save(user);
         });
     }

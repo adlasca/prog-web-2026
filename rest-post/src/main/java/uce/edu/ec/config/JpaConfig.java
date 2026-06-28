@@ -3,6 +3,7 @@ package uce.edu.ec.config;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Disposes;
 import jakarta.enterprise.inject.Produces; // Fixed: Changed from JAX-RS to CDI
 import jakarta.persistence.EntityManager;
@@ -27,7 +28,7 @@ public class JpaConfig {
     }
 
     @Produces
-    // Removed @RequestScoped if you want it dependent, but RequestScoped is standard for web threads
+    @RequestScoped
     public EntityManager produceEm() {
         return this.emf.createEntityManager();
     }
