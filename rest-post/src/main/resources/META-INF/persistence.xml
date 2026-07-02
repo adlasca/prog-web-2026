@@ -16,7 +16,7 @@
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/progweb"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="labcom,2015"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
 <!--            //PARA CREAR LA BASE DE DATOS-->
 <!--            <property name="jakarta.persistence.schema-generation.create-source" value="ddl.sql"/>-->
 <!--            <property name="jakarta.persistence.sql-load-script-source" value="import.sql"/>-->

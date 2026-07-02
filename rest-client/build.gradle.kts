@@ -19,7 +19,7 @@ dependencies {
     implementation("org.jboss.resteasy:resteasy-core:${restEasyVersion}")
     implementation("org.jboss.resteasy:resteasy-json-binding-provider:${restEasyVersion}")
 
-
+    implementation("org.jboss.resteasy:resteasy-client:${restEasyVersion}")
 }
 
 tasks.test {
