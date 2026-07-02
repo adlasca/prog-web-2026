@@ -1,9 +1,10 @@
 plugins {
     id("java")
+    id("io.freefair.lombok")version "9.5.0"
 }
 
 group = "uce.edu.ec"
-version = "unspecified"
+version = "1.0"
 
 repositories {
     mavenCentral()
