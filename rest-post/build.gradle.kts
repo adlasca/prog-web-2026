@@ -1,6 +1,22 @@
 plugins {
     id("java")
     id("io.freefair.lombok")version "9.5.0"
+    //En el gradle options, en Tasks->distribution-installDist
+    //Para crear un ejecutable, se guarda en el build->install-->"nombreProyecto"
+    //Para ejecutar, en la carpeta raiz(fuera de bin y lib), abrir cmd y ejecutar java -cp ./lib/* uce.edu.ec.RestPostMain
+    //O en el cmd, ejecutar el archivo bin del bin añadiendo la direccion de la clase
+    id("application")
+
+    //----Con plugin-----
+    //Lo mismo pero ejecutando el installShadowDist
+    //Añadir tasks.jar{ con manifest{["Main-Class"}="direccion de la clase"}
+    //Con cmd en el lib ejecutar "java -jar rest-post-1.0-all.jar"
+    //Agregar en el archivo beans.xml ="bean-discovery-mode="all"
+    id("com.gradleup.shadow") version "9.5.1"
+
+
+    //Descargar nginx, abrir cmd en la carpeta del nginx, ejecutar con "nginx", creara un servidor con direccion "localhost"
+    //En la parte web, "react07", ejecutar npm run build dist, creara la carpeta dist, copiar el contenido a la carpeta html de nginx
 }
 
 group = "uce.edu.ec"
@@ -45,4 +61,11 @@ sourceSets{
             file("${buildDir}/classes/java/main")
         )
     }
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "uce.edu.ec.RestPostMain"
+    }
+
 }

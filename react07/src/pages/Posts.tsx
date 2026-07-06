@@ -7,7 +7,7 @@ import {Link} from "react-router";
 function Posts() {
 
     const [posts, setPosts] = useState<Post[]>([]);
-    const [loading, setLoading] = useState(false);
+   // const [loading, setLoading] = useState(false);
 /*
     const fetchPosts = async () => {
         setLoading(true);
@@ -16,12 +16,12 @@ function Posts() {
     }
 */
     useEffect(() => {
-        axios.get<Post[]>("https://jsonplaceholder.typicode.com/posts")
+        axios.get<Post[]>("https://localhost:8080/posts")
             .then(res => {
                 setPosts(res.data);
             })
             .catch(err => alert(err))
-            .finally(() => setLoading(false));
+           // .finally(() => setLoading(false));
     })
 
     return (
